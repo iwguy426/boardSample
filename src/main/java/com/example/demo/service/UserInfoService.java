@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.UserInfoMapper;
 import com.example.demo.dto.UserAddRequest;
+import com.example.demo.dto.UserLoginRequest;
 import com.example.demo.dto.UserSearchRequest;
 import com.example.demo.dto.UserUpdateRequest;
 import com.example.demo.entity.UserInfo;
@@ -66,10 +67,10 @@ public class UserInfoService {
     }
     /**
      * ログインユーザ情報検索
-     * @param name ログインユーザ
+     * @param userLoginRequest ログインユーザ
      * @return 検索結果
      */
-    public List<UserInfo> nameSearch(String name) {
-        return userInfoMapper.nameSearch(name);
+    public List<UserInfo> nameSearch(UserLoginRequest userLoginRequest) {
+        return userInfoMapper.nameSearch(userLoginRequest);
     }
 }

@@ -117,7 +117,8 @@ public class UserInfoController {
         }
         // ユーザー情報の登録
         userInfoService.save(userRequest);
-        return "redirect:/user/list";
+        model.addAttribute("userLoginRequest", new UserLoginRequest());
+        return "user/login";
     }
     /**
      * ユーザー更新
@@ -137,7 +138,7 @@ public class UserInfoController {
         }
         // ユーザー情報の更新
         userInfoService.update(userUpdateRequest);
-        return "redirect:/user/list";
+        return "redirect:/user/login";
     }
     //Added by SEO(2024/02/21)
     /**
@@ -156,7 +157,8 @@ public class UserInfoController {
      * @param model Model
      * @return ユーザー情報一覧画面
      */
-    @RequestMapping(value = "/user/login", method = RequestMethod.POST)
+    /*
+     @RequestMapping(value = "/user/login", method = RequestMethod.POST)
     public String searchUser(@Validated @ModelAttribute UserLoginRequest userLoginRequest, BindingResult result, Model model) {
         if (result.hasErrors()) {
             // 入力チェックエラーの場合
@@ -175,14 +177,14 @@ public class UserInfoController {
         model.addAttribute("userlist", nameList);
         model.addAttribute("userSearchRequest", userSearchRequest);
         return "user/search";
-    }
+    } */
     //Added by SEO(2024/02/22)
     /**
      * ログアウト処理
      * @param model Model
      * @return ログイン画面
      */
-    @GetMapping(value = "/logout")
+     @GetMapping(value = "/logout")
     public String logout(Model model) {
         model.addAttribute("userLoginRequest", new UserLoginRequest());
         return "user/login";

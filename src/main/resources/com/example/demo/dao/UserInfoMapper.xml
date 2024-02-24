@@ -23,7 +23,8 @@
                 AND id = #{id}
             </if>
             <if test="name != null and name != ''">
-                AND name LIKE CONCAT('%', #{name}, '%')
+                 AND name = #{name}
+            <!--    AND name LIKE CONCAT('%', #{name}, '%') -->
             </if>
     </select>
     <!-- 新規登録 -->
@@ -43,6 +44,6 @@
     </update>
     <!--ログイン検索 -->
     <select id="nameSearch" resultType="com.example.demo.entity.UserInfo">
-        SELECT * FROM userinfo WHERE name=#{name} AND delete_date IS NULL
+        SELECT * FROM userinfo WHERE name=#{name} AND password=#{password} AND delete_date IS NULL
     </select>
 </mapper>

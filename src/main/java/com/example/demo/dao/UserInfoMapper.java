@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.example.demo.dto.UserAddRequest;
+import com.example.demo.dto.UserLoginRequest;
 import com.example.demo.dto.UserSearchRequest;
 import com.example.demo.dto.UserUpdateRequest;
 import com.example.demo.entity.UserInfo;
@@ -29,10 +30,10 @@ public interface UserInfoMapper {
     UserInfo findById(Integer id);
     /**
      * ユーザー情報検索
-     * @param user 検索用リクエストデータ
+     * @param 検索用リクエストデータ
      * @return 検索結果
      */
-    List<UserInfo> search(UserSearchRequest user);
+    List<UserInfo> search(UserSearchRequest userSearchRequest);
     /**
      * ユーザー情報登録
      * @param userRequest 登録用リクエストデータ
@@ -53,7 +54,7 @@ public interface UserInfoMapper {
      * @param name 検索用リクエストデータ
      * @return 検索結果
      */
-    List<UserInfo> nameSearch(String name);
+    List<UserInfo> nameSearch(UserLoginRequest userLoginRequest);
 
 
 }
